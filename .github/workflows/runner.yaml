@@ -1,9 +1,8 @@
 name: Database Backup 
 
 on:
-  schedule:
-    - cron: '0 0 * * *' # Menjalankan setiap hari pukul 00:00 UTC
-
+  workflow_dispatch:
+  
 jobs:
   backup:
     runs-on: ubuntu-latest
