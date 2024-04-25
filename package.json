@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "[my-framework] build --output public"
   },
   "dependencies": {
     "@vercel/postgres": "^0.1.3",
