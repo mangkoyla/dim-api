@@ -7,8 +7,5 @@
     "start": "node index.js"
   },
   "author": "mangkoyla",
-  "license": "MIT",
-  "dependencies": {
-    "@vercel/postgres": "^1.0.0"
-  }
+  "license": "MIT"
 }
