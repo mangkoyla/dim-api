@@ -20,7 +20,9 @@ jobs:
           ./scripts/backup.sh
 
       - name: Move backup file to result folder
-        run: mv backup_*.sql result/
+        run: |
+          mkdir result
+          mv backup_*.sql result/
 
       - name: Commit and push backup
         run: |
