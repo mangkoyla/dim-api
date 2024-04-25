@@ -1,0 +1,33 @@
+name: Database Backup
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Menjalankan setiap hari pukul 00:00 UTC
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install PostgreSQL client
+        run: sudo apt-get install -y postgresql-client
+
+      - name: Run backup script
+        run: |
+          chmod +x scripts/backup.sh
+          ./scripts/backup.sh
+
+      - name: Move backup file to result folder
+        run: mv backup_*.sql result/
+
+      - name: Commit and push backup
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add result/
+          git commit -m "Add database backup"
+          git push
+          
