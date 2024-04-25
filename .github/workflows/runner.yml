@@ -1,9 +1,4 @@
 name: Database Backup 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 on:
   schedule:
