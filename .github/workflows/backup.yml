@@ -19,8 +19,7 @@ jobs:
         env:
           PGUSER: ${{ secrets.PG_USER }}
           PGPASSWORD: ${{ secrets.PG_PASSWORD }}
-        run: pg_dump -h <host> -d <database_name> -U $PGUSER -w -F t > backup.sql
-          
+        run: pg_dump "postgres://default:UQ6jMvxF4Vyz@ep-bitter-night-a4yf7af2.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require" > backup.sql
       - name: Upload Backup
         uses: actions/upload-artifact@v2
         with:
