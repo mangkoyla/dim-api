@@ -5,13 +5,14 @@ on:
 jobs:
   backup:
     runs-on: ubuntu-latest
-    
+    container:
+      image: postgres:16
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       
       - name: Install PostgreSQL client
-        run: sudo apt-get install postgresql-client
+        run: sudo apt-get update && apt-get install -y postgresql-client
       
       - name: Backup PostgreSQL Database
         env:
